@@ -5,7 +5,7 @@ import argparse
 import os
 
 # ---------------------------
-# 1. خواندن آدرس تصویر از خط فرمان
+# 1.reading image path from terminal
 # ---------------------------
 parser = argparse.ArgumentParser(description="Compare simple OpenCV rotation vs rotate_bound from imutils")
 parser.add_argument("image_path", type=str, help="Path to input image")
@@ -22,7 +22,7 @@ if image is None:
     exit(1)
 
 # ---------------------------
-# 2. چرخش ساده OpenCV (مشکل cut-off)
+# 2. simple rotatio eith OpenCV (cut-off)
 # ---------------------------
 def rotate_simple(img, angle):
     (h, w) = img.shape[:2]
@@ -34,12 +34,12 @@ def rotate_simple(img, angle):
 rotated_cutoff = rotate_simple(image, args.angle)
 
 # ---------------------------
-# 3. چرخش با rotate_bound (راه حل)
+# 3. solution rotate_bound
 # ---------------------------
 rotated_fixed = rotate_bound(image, args.angle)
 
 # ---------------------------
-# 4. نمایش تصاویر برای مقایسه
+# 4. showing the diferences
 # ---------------------------
 plt.figure(figsize=(15, 5))
 
