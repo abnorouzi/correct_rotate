@@ -28,7 +28,7 @@ def rotate_simple(img, angle):
     (h, w) = img.shape[:2]
     (cX, cY) = (w // 2, h // 2)
     M = cv2.getRotationMatrix2D((cX, cY), angle, 1.0)
-    rotated = cv2.warpAffine(img, M, (w, h))  # اندازه خروجی همان اندازه اصلی
+    rotated = cv2.warpAffine(img, M, (w, h))  # same dimensions
     return rotated
 
 rotated_cutoff = rotate_simple(image, args.angle)
